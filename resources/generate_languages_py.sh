@@ -1,6 +1,6 @@
 #!/bin/bash
 
-FL=languages.py
+FL=../languages.py
 
 echo "from enum import Enum" > $FL
 echo "class Language(int, Enum):" >> $FL
