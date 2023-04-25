@@ -22,7 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from enum import Enum
-from types import HigherEducationLevel, LanguageWithLevel, JobFormat
+from types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary
 from currencies import Currency
 
 ##########################################################
@@ -31,18 +31,6 @@ def bool_to_str( v: bool ) -> str:
     if v:
         return "1"
     return "0"
-
-class RangeInt:
-    r_from: Optional[int]     = None
-    r_to:   Optional[int]     = None
-
-class RangeFloat:
-    r_from: Optional[float]   = None
-    r_to:   Optional[float]   = None
-
-class Salary:
-    salary: RangeInt          = None
-    currency: Currency        = None
 
 class QueryParams:
 

@@ -56,4 +56,16 @@ class LanguageWithLevel:
     language: Language        = None
     level: LanguageLevel      = None
 
+class RangeInt:
+    r_from: Optional[int]     = None
+    r_to:   Optional[int]     = None
+
+class RangeFloat:
+    r_from: Optional[float]   = None
+    r_to:   Optional[float]   = None
+
+class Salary:
+    salary: RangeInt          = None
+    currency: Currency        = None
+
 ##########################################################
