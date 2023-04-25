@@ -34,29 +34,30 @@ class QueryParams:
 
     specializations: list[int]      = []
     qualifications: list[int]       = []
-    educations: list[HigherEducationLevel]  = []
     skills: list[int]               = []
     language_skills: list[LanguageWithLevel] = None
     salary: Optional[Salary]        = None
-    age: Optional[RangeInt]         = None
     experience: Optional[RangeInt]  = None
     location: Optional[int]         = None
+    age: Optional[RangeInt]         = None
+    educations: list[HigherEducationLevel]  = []
     job_format: Optional[JobFormat] = None
 
-    def __init__( self, ad_id, title, price, is_negotiable, is_shipping_offered, shipping_price, num_photos ):
-        self.ad_id                  = ad_id
-        self.title                  = title
-        self.price                  = price
-        self.is_negotiable          = is_negotiable
-        self.is_shipping_offered    = is_shipping_offered
-        self.shipping_price         = shipping_price
-        self.num_photos             = num_photos
-        self.description            = ""
-        self.photo_filenames        = []
+    def __init__( self, specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format ):
+        self.specializations   = specializations
+        self.qualifications    = qualifications
+        self.skills            = skills
+        self.language_skills   = language_skills
+        self.salary            = salary
+        self.experience        = experience
+        self.location          = location
+        self.age               = age
+        self.educations        = educations
+        self.job_format        = job_format
 
     def __str__(self):
-        return str( QueryParams.VERSION ) + ";" + self.ad_id + ";" + self.title + ";" + str( self.price ) \
-            + ";" + bool_to_str( self.is_negotiable ) + ";" + bool_to_str( self.is_shipping_offered ) + ";" + str( self.shipping_price ) \
-            + ";" + str( self.num_photos )
+        return str( QueryParams.VERSION ) + ";" + self.specializations + ";" + self.qualifications + ";" + str( self.skills ) \
+            + ";" + bool_to_str( self.language_skills ) + ";" + bool_to_str( self.salary ) + ";" + str( self.experience ) \
+            + ";" + str( self.location )
 
 ##########################################################
