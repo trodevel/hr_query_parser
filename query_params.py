@@ -22,6 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from enum import Enum
+import types
 
 ##########################################################
 
@@ -29,24 +30,6 @@ def bool_to_str( v: bool ) -> str:
     if v:
         return "1"
     return "0"
-
-class JobFormat(int, Enum):
-    UNDEF = 0
-    OFFICE_ONLY = 1
-    OFFICE_AND_REMOTE = 2
-    REMOTE_ONLY = 3
-
-class Qualification(int, Enum):
-    undef = 0
-    intern = 1
-    junior = 2
-    middle = 3
-    senior = 4
-    lead = 5
-
-class SkillWithLevel:
-    skill: int                = None
-    level: int                = None
 
 class RangeInt:
     r_from: Optional[int]     = None
