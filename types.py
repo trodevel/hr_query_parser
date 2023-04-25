@@ -39,6 +39,12 @@ class Qualification(int, Enum):
     senior = 4
     lead = 5
 
+class HigherEducationLevel(int, Enum):
+    UNDEF = 0
+    BACHELOR = 1
+    MASTER = 2
+    PHD = 3
+
 class LanguageLevel(int, Enum):
     undef = 0
     beginner = 1

@@ -45,7 +45,7 @@ class QueryParams:
     qualifications: list[int]       = []
     educations: list[int]           = []
     skills: list[int]               = []
-    language_skills: list[SkillWithLevel] = None
+    language_skills: list[LanguageWithLevel] = None
     salary: Optional[RangeInt]      = None
     salary_currency: Optional[int]  = None
     age: Optional[RangeInt]         = None
