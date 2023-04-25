@@ -22,7 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from enum import Enum
-import types
+from types import HigherEducationLevel, LanguageWithLevel, JobFormat
 
 ##########################################################
 
@@ -43,7 +43,7 @@ class QueryParams:
 
     specializations: list[int]      = []
     qualifications: list[int]       = []
-    educations: list[int]           = []
+    educations: list[HigherEducationLevel]  = []
     skills: list[int]               = []
     language_skills: list[LanguageWithLevel] = None
     salary: Optional[RangeInt]      = None
