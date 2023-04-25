@@ -21,6 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from enum import Enum
+from languages import Language
 
 ##########################################################
 
@@ -38,8 +39,15 @@ class Qualification(int, Enum):
     senior = 4
     lead = 5
 
-class SkillWithLevel:
-    skill: int                = None
-    level: int                = None
+class LanguageLevel(int, Enum):
+    undef = 0
+    beginner = 1
+    intermediate = 2
+    advanced = 3
+    native = 4
+
+class LanguageWithLevel:
+    language: Language        = None
+    level: LanguageLevel      = None
 
 ##########################################################
