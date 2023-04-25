@@ -40,6 +40,10 @@ class RangeFloat:
     r_from: Optional[float]   = None
     r_to:   Optional[float]   = None
 
+class Salary:
+    salary: RangeInt          = None
+    currency: Currency        = None
+
 class QueryParams:
 
     specializations: list[int]      = []
@@ -47,8 +51,7 @@ class QueryParams:
     educations: list[HigherEducationLevel]  = []
     skills: list[int]               = []
     language_skills: list[LanguageWithLevel] = None
-    salary: Optional[RangeInt]      = None
-    salary_currency: Optional[Currency]  = None
+    salary: Optional[Salary]        = None
     age: Optional[RangeInt]         = None
     experience: Optional[RangeInt]  = None
     location: Optional[int]         = None
