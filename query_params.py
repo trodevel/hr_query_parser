@@ -21,7 +21,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from typing import Optional
-from enum import Enum
 from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary
 
 ##########################################################
