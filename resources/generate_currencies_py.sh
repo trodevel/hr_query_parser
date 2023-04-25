@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# source: https://en.wikipedia.org/wiki/ISO_4217
+
 FL=../currencies.py
 
 echo "from enum import Enum" > $FL

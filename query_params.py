@@ -23,6 +23,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from typing import Optional
 from enum import Enum
 from types import HigherEducationLevel, LanguageWithLevel, JobFormat
+from currencies import Currency
 
 ##########################################################
 
@@ -47,7 +48,7 @@ class QueryParams:
     skills: list[int]               = []
     language_skills: list[LanguageWithLevel] = None
     salary: Optional[RangeInt]      = None
-    salary_currency: Optional[int]  = None
+    salary_currency: Optional[Currency]  = None
     age: Optional[RangeInt]         = None
     experience: Optional[RangeInt]  = None
     location: Optional[int]         = None
