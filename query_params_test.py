@@ -30,8 +30,8 @@ from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel,
 def test_01():
 
     d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
-        [ LanguageWithLevel( languages.ENGLISH, LanguageLevel.advanced ) ],
-        Salary( RangeInt( 0, 200000 ), currencies.EURO ),
+        [ LanguageWithLevel( languages.Language.ENGLISH, LanguageLevel.advanced ) ],
+        Salary( RangeInt( 0, 200000 ), currencies.Currency.EUR ),
         RangeInt( 0, 2 ),
         [ 555 ],
         RangeInt( 20, 50 ),
