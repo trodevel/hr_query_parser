@@ -53,12 +53,12 @@ class QueryParams:
 
     def __str__(self):
         return list_to_str( self.specializations ) + ";" + list_to_str( self.qualifications ) + ";" + list_to_str( self.skills ) \
-            + ";" + list_to_str( self.language_skills )
-            + ";" + optional_to_str( self.salary )
-            + ";" + optional_to_str( self.experience )
-            + ";" + optional_to_str( self.location )
-            + ";" + optional_to_str( self.age )
-            + ";" + list_to_str( self.educations )
+            + ";" + list_to_str( self.language_skills ) \
+            + ";" + optional_to_str( self.salary ) \
+            + ";" + optional_to_str( self.experience ) \
+            + ";" + optional_to_str( self.location ) \
+            + ";" + optional_to_str( self.age ) \
+            + ";" + list_to_str( self.educations ) \
             + ";" + optional_to_str( self.job_format )
 
 ##########################################################
