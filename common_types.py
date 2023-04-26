@@ -67,20 +67,20 @@ class LanguageWithLevel:
         return str( self.language ) + ";" + str( self.level )
 
 class RangeInt:
-    r_from: Optional[int]     = None
-    r_to:   Optional[int]     = None
+    value_from: Optional[int]     = None
+    value_to:   Optional[int]     = None
 
-    def __init__( self, r_from, r_to )
-        self.r_from     = r_from
-        self.r_to       = r_to
+    def __init__( self, value_from, value_to )
+        self.value_from     = value_from
+        self.value_to       = value_to
 
     def __str__(self):
-        return optional_to_str( self.r_from ) + ";" + optional_to_str( self.r_to )
+        return optional_to_str( self.value_from ) + ";" + optional_to_str( self.value_to )
 
 
 class RangeFloat:
-    r_from: Optional[float]   = None
-    r_to:   Optional[float]   = None
+    value_from: Optional[float]   = None
+    value_to:   Optional[float]   = None
 
 class Salary:
     salary: RangeInt          = None
