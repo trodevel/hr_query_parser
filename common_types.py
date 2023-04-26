@@ -59,7 +59,7 @@ class LanguageWithLevel:
     language: Language        = None
     level: LanguageLevel      = None
 
-    def __init__( self, language, level )
+    def __init__( self, language, level ):
         self.language          = language
         self.level             = level
 
@@ -70,7 +70,7 @@ class RangeInt:
     value_from: Optional[int]     = None
     value_to:   Optional[int]     = None
 
-    def __init__( self, value_from, value_to )
+    def __init__( self, value_from, value_to ):
         self.value_from     = value_from
         self.value_to       = value_to
 
@@ -86,7 +86,7 @@ class Salary:
     salary: RangeInt          = None
     currency: Currency        = None
 
-    def __init__( self, salary, currency )
+    def __init__( self, salary, currency ):
         self.salary     = salary
         self.currency   = currency
 
