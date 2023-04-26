@@ -24,6 +24,7 @@ from enum import Enum
 from languages import Language
 from currencies import Currency
 from typing import Optional
+from generic_str_helpers import optional_to_str
 
 ##########################################################
 
@@ -69,6 +70,14 @@ class RangeInt:
     r_from: Optional[int]     = None
     r_to:   Optional[int]     = None
 
+    def __init__( self, r_from, r_to )
+        self.r_from     = r_from
+        self.r_to       = r_to
+
+    def __str__(self):
+        return optional_to_str( self.r_from ) + ";" + optional_to_str( self.r_to )
+
+
 class RangeFloat:
     r_from: Optional[float]   = None
     r_to:   Optional[float]   = None
@@ -76,5 +85,13 @@ class RangeFloat:
 class Salary:
     salary: RangeInt          = None
     currency: Currency        = None
+
+    def __init__( self, salary, currency )
+        self.salary     = salary
+        self.currency   = currency
+
+    def __str__(self):
+        return optional_to_str( self.salary ) + ";" + optional_to_str( self.currency )
+
 
 ##########################################################
