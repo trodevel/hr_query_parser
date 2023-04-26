@@ -42,9 +42,25 @@ def test_01():
 
 ##########################################################
 
+def test_02():
+
+    d = query_params.QueryParams( [ ], [ ], [ ], \
+        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ) ],
+        None,
+        None,
+        None,
+        None,
+        [ ],
+        None )
+
+    print( f'test_02: {d}' )
+
+##########################################################
+
 def test():
 
     test_01()
+    test_02()
 
 ##########################################################
 
