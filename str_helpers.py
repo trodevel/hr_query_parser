@@ -20,6 +20,6 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
 
-def to_string_list( l : list ):
+def list_to_str( l : list ):
     res = ','.join( str(e) for e in l )
     return res
