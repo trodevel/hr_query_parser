@@ -58,6 +58,13 @@ class LanguageWithLevel:
     language: Language        = None
     level: LanguageLevel      = None
 
+    def __init__( self, language, level )
+        self.language          = language
+        self.level             = level
+
+    def __str__(self):
+        return str( self.language ) + ";" + str( self.level )
+
 class RangeInt:
     r_from: Optional[int]     = None
     r_to:   Optional[int]     = None
