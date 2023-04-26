@@ -22,7 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
-from str_helpers import list_to_str, optional_to_str
+from generic_str_helpers import list_to_str, optional_to_str
 
 ##########################################################
 
