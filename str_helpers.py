@@ -25,6 +25,6 @@ def bool_to_str( v: bool ) -> str:
         return "1"
     return "0"
 
-def list_to_str( l : list ):
+def list_to_str( l : list ) -> str:
     res = ','.join( str(e) for e in l )
     return res
