@@ -20,6 +20,11 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
 
+def bool_to_str( v: bool ) -> str:
+    if v:
+        return "1"
+    return "0"
+
 def list_to_str( l : list ):
     res = ','.join( str(e) for e in l )
     return res

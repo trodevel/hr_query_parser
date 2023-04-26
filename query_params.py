@@ -25,11 +25,6 @@ from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Sal
 
 ##########################################################
 
-def bool_to_str( v: bool ) -> str:
-    if v:
-        return "1"
-    return "0"
-
 class QueryParams:
 
     specializations: list[int]      = []
