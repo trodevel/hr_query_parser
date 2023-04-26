@@ -21,8 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import query_params
-import languages
-import currencies
+from languages import Language
+from currencies import Currency
 from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
 
 ##########################################################
@@ -30,8 +30,8 @@ from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel,
 def test_01():
 
     d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
-        [ LanguageWithLevel( languages.Language.ENGLISH, LanguageLevel.advanced ) ],
-        Salary( RangeInt( 0, 200000 ), currencies.Currency.EUR ),
+        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ) ],
+        Salary( RangeInt( 0, 200000 ), Currency.EUR ),
         RangeInt( 0, 2 ),
         [ 555 ],
         RangeInt( 20, 50 ),
