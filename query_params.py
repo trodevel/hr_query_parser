@@ -22,7 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
-from generic_str_helpers import list_to_str, optional_to_str, optional_to_str_w_brackets
+from generic_str_helpers import list_to_str_w_size, optional_to_str, optional_to_str_w_brackets
 
 ##########################################################
 
@@ -52,13 +52,13 @@ class QueryParams:
         self.job_format        = job_format
 
     def __str__(self):
-        return list_to_str( self.specializations ) + ";" + list_to_str( self.qualifications ) + ";" + list_to_str( self.skills ) \
-            + ";" + list_to_str( self.language_skills ) \
+        return list_to_str_w_size( self.specializations ) + ";" + list_to_str_w_size( self.qualifications ) + ";" + list_to_str_w_size( self.skills ) \
+            + ";" + list_to_str_w_size( self.language_skills ) \
             + ";" + optional_to_str_w_brackets( self.salary ) \
             + ";" + optional_to_str_w_brackets( self.experience ) \
             + ";" + optional_to_str_w_brackets( self.location ) \
             + ";" + optional_to_str_w_brackets( self.age ) \
-            + ";" + list_to_str( self.educations ) \
+            + ";" + list_to_str_w_size( self.educations ) \
             + ";" + optional_to_str_w_brackets( self.job_format )
 
 ##########################################################
