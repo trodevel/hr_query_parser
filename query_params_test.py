@@ -57,10 +57,27 @@ def test_02():
 
 ##########################################################
 
+def test_03():
+
+    d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
+        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ), \
+             LanguageWithLevel( Language.GERMAN_STANDARD, LanguageLevel.beginner ) ],
+        Salary( RangeInt( 0, 85000 ), Currency.EUR ),
+        RangeInt( 0, 2 ),
+        555,
+        RangeInt( 20, 50 ),
+        [ HigherEducationLevel.MASTER ],
+        JobFormat.OFFICE_AND_REMOTE )
+
+    print( f'test_03: {d}' )
+
+##########################################################
+
 def test():
 
     test_01()
     test_02()
+    test_03()
 
 ##########################################################
 
