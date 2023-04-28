@@ -33,7 +33,7 @@ def test_01():
         [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ) ],
         Salary( RangeInt( 0, 200000 ), Currency.EUR ),
         RangeInt( 0, 2 ),
-        [ 555 ],
+        555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.BACHELOR ],
         JobFormat.OFFICE_AND_REMOTE )
