@@ -30,7 +30,7 @@ from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel,
 def test_01():
 
     d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
-        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ) ],
+        [ LanguageWithLevel( Language.en, LanguageLevel.advanced ) ],
         Salary( RangeInt( 0, 200000 ), Currency.EUR ),
         RangeInt( 0, 2 ),
         555,
@@ -45,7 +45,7 @@ def test_01():
 def test_02():
 
     d = query_params.QueryParams( [ ], [ ], [ ], \
-        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ) ],
+        [ LanguageWithLevel( Language.en, LanguageLevel.advanced ) ],
         None,
         None,
         None,
@@ -60,8 +60,8 @@ def test_02():
 def test_03():
 
     d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
-        [ LanguageWithLevel( Language.ENGLISH, LanguageLevel.advanced ), \
-             LanguageWithLevel( Language.GERMAN_STANDARD, LanguageLevel.beginner ) ],
+        [ LanguageWithLevel( Language.en, LanguageLevel.advanced ), \
+             LanguageWithLevel( Language.de, LanguageLevel.beginner ) ],
         Salary( RangeInt( 0, 85000 ), Currency.EUR ),
         RangeInt( 0, 2 ),
         555,
