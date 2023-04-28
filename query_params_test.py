@@ -45,7 +45,7 @@ def test_01():
 def test_02():
 
     d = query_params.QueryParams( [ ], [ ], [ ], \
-        [ LanguageWithLevel( Language.en, LanguageLevel.advanced ) ],
+        [ ],
         None,
         None,
         None,
