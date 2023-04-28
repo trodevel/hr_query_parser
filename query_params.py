@@ -22,7 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from typing import Optional
 from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
-from generic_str_helpers import list_to_str, optional_to_str
+from generic_str_helpers import list_to_str, optional_to_str, optional_to_str_w_brackets
 
 ##########################################################
 
@@ -54,11 +54,11 @@ class QueryParams:
     def __str__(self):
         return list_to_str( self.specializations ) + ";" + list_to_str( self.qualifications ) + ";" + list_to_str( self.skills ) \
             + ";" + list_to_str( self.language_skills ) \
-            + ";" + optional_to_str( self.salary ) \
-            + ";" + optional_to_str( self.experience ) \
-            + ";" + optional_to_str( self.location ) \
-            + ";" + optional_to_str( self.age ) \
+            + ";" + optional_to_str_w_brackets( self.salary ) \
+            + ";" + optional_to_str_w_brackets( self.experience ) \
+            + ";" + optional_to_str_w_brackets( self.location ) \
+            + ";" + optional_to_str_w_brackets( self.age ) \
             + ";" + list_to_str( self.educations ) \
-            + ";" + optional_to_str( self.job_format )
+            + ";" + optional_to_str_w_brackets( self.job_format )
 
 ##########################################################

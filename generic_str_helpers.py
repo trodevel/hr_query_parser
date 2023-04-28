@@ -29,7 +29,16 @@ def list_to_str( l : list ) -> str:
     res = ','.join( str(e) for e in l )
     return res
 
+def list_to_str_w_size( l : list ) -> str:
+    res = f"{len(l)}"
+    if len( l ):
+        res += "," + list_to_str( l )
+    return res
+
 def optional_to_str( v ) -> str:
     if v:
         return str( v )
     return ""
+
+def optional_to_str_w_brackets( v ) -> str:
+    return "{" + optional_to_str( v ) + "}"
