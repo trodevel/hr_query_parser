@@ -21,6 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from fuzzydict import fuzzydict
+from fuzzydict_loader import fuzzydict_loader
 from query_params import QueryParams
 from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
 
@@ -33,8 +34,10 @@ class QueryParamsParser:
     similarity_pct: int        = None
 
     def __init__( self ):
-        self.locations         = locations
-        self.skills            = skills
+        self.locations         = fuzzydict_loader.load( 'resources/locations.eng.csv' )
+        self.locations.set_caseinsensitive( True )
+        self.skills            = fuzzydict_loader.load( 'resources/skills.eng.csv' )
+        self.skills.set_caseinsensitive( True )
         self.similarity_pct    = 85
 
     def __str__(self):
