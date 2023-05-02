@@ -41,7 +41,7 @@ def test_01():
 
     p = get_parser()
 
-    d = p.parser( "node js" )
+    d = p.parse( "node js" )
 
     print( f'test_01: {d}' )
 
