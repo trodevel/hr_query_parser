@@ -29,12 +29,47 @@ class QueryParamsParser:
 
     locations: fuzzydict       = None
     skills:    fuzzydict       = None
+    similarity_pct: int        = None
 
     def __init__( self ):
         self.locations         = locations
         self.skills            = skills
+        self.similarity_pct    = 85
 
     def __str__(self):
         return f"len( self.locations );len( self.skills )"
+
+    def parse( self, s: str ) -> QueryParams:
+
+        tokens = s.split()
+
+        specializations: list[int]      = []
+        qualifications: list[int]       = []
+        skills = _parse_tokens( tokens, self.skills, self.similarity_pct )
+        language_skills: list[LanguageWithLevel] = None
+        salary: Optional[Salary]        = None
+        experience: Optional[RangeInt]  = None
+        location: Optional[int]         = None
+        age: Optional[RangeInt]         = None
+        educations: list[HigherEducationLevel]  = []
+        job_format: Optional[JobFormat] = None
+
+        res = QueryParams( specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format )
+
+        return res
+
+    def _parse_tokens( tokens, d: fuzzydict, similarity_pct: int ) -> list:
+
+        res = []
+
+        for t in tokens:
+            res_iter = d.find_all_elems( t, similarity_pct )
+            res += res_iter
+
+        return res
+
+    def _parse_token( token: str, d: fuzzydict, similarity_pct: int  ) -> list:
+        res = d.find_all( t, similarity_pct )
+        return res
 
 ##########################################################
