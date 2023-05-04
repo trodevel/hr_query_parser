@@ -87,6 +87,8 @@ class QueryParamsParser:
 
     def _parse_tokens_and_return_unmatched_tokens( tokens, d: fuzzydict, similarity_pct: int, token_group_size: int ) -> [ list, list ]:
 
+        print( f"DEBUG: _parse_tokens_and_return_unmatched_tokens: tokens {tokens}, similarity_pct {similarity_pct}, token_group_size {token_group_size}" )
+
         res = []
         unmatched_tokens = []
 
@@ -97,6 +99,8 @@ class QueryParamsParser:
             t = QueryParamsParser._join_tokens( subset )
 
             res_iter = d.find_all_elems( t, similarity_pct )
+
+            print( f"DEBUG: _parse_tokens_and_return_unmatched_tokens: t '{t}', res_iter {res_iter}" )
 
             if not len( res_iter ):
                 unmatched_tokens = subset
