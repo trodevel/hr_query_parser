@@ -50,7 +50,7 @@ class QueryParamsParser:
         specializations: list[int]      = []
         qualifications: list[int]       = []
         skills = QueryParamsParser._parse_tokens( tokens, self.skills, self.similarity_pct )
-        language_skills: list[LanguageWithLevel] = None
+        language_skills: list[LanguageWithLevel] = []
         salary: Optional[Salary]        = None
         experience: Optional[RangeInt]  = None
         location: Optional[int]         = None
