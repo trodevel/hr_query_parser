@@ -53,7 +53,13 @@ class QueryParamsParser:
         language_skills: list[LanguageWithLevel] = []
         salary: Optional[Salary]        = None
         experience: Optional[RangeInt]  = None
-        location = QueryParamsParser._parse_tokens( tokens, self.locations, self.similarity_pct )
+
+        locations_list = QueryParamsParser._parse_tokens( tokens, self.locations, self.similarity_pct )
+        location: Optional[int]         = None
+
+        if len( locations_list ):
+            location = locations_list[ 0 ]
+
         age: Optional[RangeInt]         = None
         educations: list[HigherEducationLevel]  = []
         job_format: Optional[JobFormat] = None
