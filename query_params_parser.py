@@ -92,7 +92,7 @@ class QueryParamsParser:
         res = []
         unmatched_tokens = []
 
-        for i in range( len( tokens ) ):
+        for i in range( 0, len( tokens ), token_group_size ):
 
             subset = tokens[ i : i + token_group_size ]
 
@@ -106,8 +106,6 @@ class QueryParamsParser:
                 unmatched_tokens = subset
 
             res += res_iter
-
-            i += token_group_size
 
         return [ res, unmatched_tokens ]
 
