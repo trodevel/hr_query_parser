@@ -65,10 +65,16 @@ class QueryParamsParser:
     def _parse_tokens( tokens, d: fuzzydict, similarity_pct: int ) -> list:
 
         res = []
+        unmatched_tokens = []
 
-        for t in tokens:
-            res_iter = d.find_all_elems( t, similarity_pct )
-            res += res_iter
+        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( tokens, d, similarity_pct, 3 )
+        res += res_iter
+
+        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( unmatched_tokens, d, similarity_pct, 2 )
+        res += res_iter
+
+        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( unmatched_tokens, d, similarity_pct, 1 )
+        res += res_iter
 
         return res
 
