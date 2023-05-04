@@ -72,6 +72,35 @@ class QueryParamsParser:
 
         return res
 
+    def _join_tokens( tokens_subset ) -> str:
+
+        res = ' '.join( str(e) for e in tokens_subset )
+
+        return res
+
+
+    def _parse_tokens_and_return_unmatched_tokens( tokens, d: fuzzydict, similarity_pct: int, token_group_size: int ) -> [ list, list ]:
+
+        res = []
+        unmatched_tokens = []
+
+        for i in range( len( tokens ) ):
+
+            subset = tokens[ i : i + token_group_size ]
+
+            t = QueryParamsParser._join_tokens( subset )
+
+            res_iter = d.find_all_elems( t, similarity_pct )
+
+            if not len( res_iter ):
+                unmatched_tokens = subset
+
+            res += res_iter
+
+            i += token_group_size
+
+        return [ res, unmatched_tokens ]
+
     def _parse_token( token: str, d: fuzzydict, similarity_pct: int  ) -> list:
         res = d.find_all( t, similarity_pct )
         return res
