@@ -46,15 +46,16 @@ class QueryParamsParser:
     def parse( self, s: str ) -> QueryParams:
 
         tokens = s.split()
+        unmatched_tokens = []
 
         specializations: list[int]      = []
         qualifications: list[int]       = []
-        skills = QueryParamsParser._parse_tokens( tokens, self.skills, self.similarity_pct )
+        skills, unmatched_tokens = QueryParamsParser._parse_tokens( tokens, self.skills, self.similarity_pct )
         language_skills: list[LanguageWithLevel] = []
         salary: Optional[Salary]        = None
         experience: Optional[RangeInt]  = None
 
-        locations_list = QueryParamsParser._parse_tokens( tokens, self.locations, self.similarity_pct )
+        locations_list, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.locations, self.similarity_pct )
         location: Optional[int]         = None
 
         if len( locations_list ):
@@ -68,7 +69,7 @@ class QueryParamsParser:
 
         return res
 
-    def _parse_tokens( tokens, d: fuzzydict, similarity_pct: int ) -> list:
+    def _parse_tokens( tokens, d: fuzzydict, similarity_pct: int ) -> [ list, list ]:
 
         res = []
         unmatched_tokens = []
@@ -82,7 +83,7 @@ class QueryParamsParser:
         res_iter, unmatched_tokens = QueryParamsParser._group_and_parse_tokens( unmatched_tokens, d, similarity_pct, 1 )
         res += res_iter
 
-        return res
+        return [ res, unmatched_tokens ]
 
     def _join_tokens( tokens_subset ) -> str:
 
