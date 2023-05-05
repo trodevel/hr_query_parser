@@ -37,23 +37,25 @@ def get_parser():
 
 ##########################################################
 
-def test_01():
+def test_kern( name: str, text: str ):
 
     p = get_parser()
 
-    d = p.parse( "node js" )
+    d = p.parse( text )
 
-    print( f'test_01: {d}' )
+    print( f'{name}: {d}' )
+
+##########################################################
+
+def test_01():
+
+    test_kern( "test_01", "node js" )
 
 ##########################################################
 
 def test_02():
 
-    p = get_parser()
-
-    d = p.parse( "node js react" )
-
-    print( f'test_02: {d}' )
+    test_kern( "test_02", "node js react" )
 
 ##########################################################
 
