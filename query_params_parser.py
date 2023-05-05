@@ -73,13 +73,13 @@ class QueryParamsParser:
         res = []
         unmatched_tokens = []
 
-        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( tokens, d, similarity_pct, 3 )
+        res_iter, unmatched_tokens = QueryParamsParser._group_and_parse_tokens( tokens, d, similarity_pct, 3 )
         res += res_iter
 
-        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( unmatched_tokens, d, similarity_pct, 2 )
+        res_iter, unmatched_tokens = QueryParamsParser._group_and_parse_tokens( unmatched_tokens, d, similarity_pct, 2 )
         res += res_iter
 
-        res_iter, unmatched_tokens = QueryParamsParser._parse_tokens_and_return_unmatched_tokens( unmatched_tokens, d, similarity_pct, 1 )
+        res_iter, unmatched_tokens = QueryParamsParser._group_and_parse_tokens( unmatched_tokens, d, similarity_pct, 1 )
         res += res_iter
 
         return res
@@ -91,9 +91,9 @@ class QueryParamsParser:
         return res
 
 
-    def _parse_tokens_and_return_unmatched_tokens( tokens, d: fuzzydict, similarity_pct: int, token_group_size: int ) -> [ list, list ]:
+    def _group_and_parse_tokens( tokens, d: fuzzydict, similarity_pct: int, token_group_size: int ) -> [ list, list ]:
 
-        print( f"DEBUG: _parse_tokens_and_return_unmatched_tokens: tokens {tokens}, similarity_pct {similarity_pct}, token_group_size {token_group_size}" )
+        print( f"DEBUG: _group_and_parse_tokens: tokens {tokens}, similarity_pct {similarity_pct}, token_group_size {token_group_size}" )
 
         res = []
         unmatched_tokens = []
@@ -106,7 +106,7 @@ class QueryParamsParser:
 
             res_iter = d.find_all_elems( t, similarity_pct )
 
-            print( f"DEBUG: _parse_tokens_and_return_unmatched_tokens: t '{t}', res_iter {res_iter}" )
+            print( f"DEBUG: _group_and_parse_tokens: t '{t}', res_iter {res_iter}" )
 
             if not len( res_iter ):
                 unmatched_tokens = subset
