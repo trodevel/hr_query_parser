@@ -105,7 +105,7 @@ class QueryParamsParser:
 
             t = QueryParamsParser._join_tokens( subset )
 
-            res_iter = d.find_all_elems( t, similarity_pct )
+            res_iter = d.find_all( t, similarity_pct )
 
             print( f"DEBUG: _group_and_parse_tokens: t '{t}', res_iter {res_iter}" )
 
