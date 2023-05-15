@@ -73,6 +73,7 @@ def test_04():
 
 def test_05():
 
+    test_kern( "test_05", "node js ontario" )
     test_kern( "test_05", "node js ontario office" )
     test_kern( "test_05", "node js ontario remote" )
     test_kern( "test_05", "node js ontario office and remote" )
