@@ -31,11 +31,13 @@ class QueryParamsParser:
 
     locations: fuzzydict       = None
     skills:    fuzzydict       = None
+    job_formats: fuzzydict     = None
     similarity_pct: int        = None
 
     def __init__( self ):
         self.locations         = fuzzydict_loader.load_inverse( 'resources/locations.eng.csv', True )
         self.skills            = fuzzydict_loader.load_inverse_w_synonyms( 'resources/skills.eng.csv', True )
+        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( 'resources/job_formats.eng.csv', True )
         self.similarity_pct    = 85
 
     def __str__(self):
@@ -61,7 +63,7 @@ class QueryParamsParser:
 
         age: Optional[RangeInt]         = None
         educations: list[HigherEducationLevel]  = []
-        job_format: Optional[JobFormat] = None
+        job_format, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.job_formats, self.similarity_pct )
 
         res = QueryParams( specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format )
 
