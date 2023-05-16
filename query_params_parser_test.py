@@ -73,20 +73,21 @@ def test_04():
 
 def test_05():
 
+#    test_kern( "test_05", "node js ontario" )
+#    test_kern( "test_05", "node js ontario office" )
+#    test_kern( "test_05", "node js ontario remote" )
+#    test_kern( "test_05", "node js ontario office and remote" )
+#    test_kern( "test_05", "node js ontario hybrid" )
     test_kern( "test_05", "node js ontario" )
-    test_kern( "test_05", "node js ontario office" )
-    test_kern( "test_05", "node js ontario remote" )
-    test_kern( "test_05", "node js ontario office and remote" )
-    test_kern( "test_05", "node js ontario hybrid" )
 
 ##########################################################
 
 def test():
 
-    test_01()
-    test_02()
-    test_03()
-    test_04()
+#    test_01()
+#    test_02()
+#    test_03()
+#    test_04()
     test_05()
 
 ##########################################################

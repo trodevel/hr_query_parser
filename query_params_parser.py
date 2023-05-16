@@ -50,11 +50,13 @@ class QueryParamsParser:
 
         specializations: list[int]      = []
         qualifications: list[int]       = []
+        print( f"DEBUG: parse: skills" )
         skills, unmatched_tokens = QueryParamsParser._parse_tokens( tokens, self.skills, self.similarity_pct )
         language_skills: list[LanguageWithLevel] = []
         salary: Optional[Salary]        = None
         experience: Optional[RangeInt]  = None
 
+        print( f"DEBUG: parse: locations" )
         locations_list, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.locations, self.similarity_pct )
         location: Optional[int]         = None
 
@@ -63,6 +65,7 @@ class QueryParamsParser:
 
         age: Optional[RangeInt]         = None
         educations: list[HigherEducationLevel]  = []
+        print( f"DEBUG: parse: job_format" )
         job_format, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.job_formats, self.similarity_pct )
 
         res = QueryParams( specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format )
@@ -99,7 +102,18 @@ class QueryParamsParser:
         res = []
         unmatched_tokens = []
 
-        for i in range( 0, len( tokens ), token_group_size ):
+        num_tokens = len( tokens )
+
+        print( f"DEBUG: _group_and_parse_tokens: num_tokens {num_tokens}, token_group_size {token_group_size}" )
+
+        if num_tokens < token_group_size:
+            print( f"DEBUG: _group_and_parse_tokens: num_tokens {num_tokens} < token_group_size {token_group_size}" )
+            return [ res, tokens ]
+
+        rng=range( 0, num_tokens ) # DEBUG
+        print( f"DEBUG: _group_and_parse_tokens: range {rng}" )
+
+        for i in range( 0, num_tokens ):
 
             subset = tokens[ i : i + token_group_size ]
 
@@ -107,13 +121,14 @@ class QueryParamsParser:
 
             res_iter = d.find_all( t, similarity_pct )
 
-            print( f"DEBUG: _group_and_parse_tokens: t '{t}', res_iter {res_iter}" )
+            print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
 
-            if not len( res_iter ):
-                unmatched_tokens = subset
+            if len( res_iter ) == 0:
+                unmatched_tokens.append( tokens[ i ] )
 
             res += res_iter
 
+        print( f"DEBUG: _group_and_parse_tokens: result: res {len(res)}: {res}, unmatched_tokens {unmatched_tokens}" )
         return [ res, unmatched_tokens ]
 
     def _parse_token( token: str, d: fuzzydict, similarity_pct: int  ) -> list:
