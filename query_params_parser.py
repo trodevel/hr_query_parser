@@ -125,7 +125,7 @@ class QueryParamsParser:
             print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
 
             if len( res_iter ) > 0:
-                print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
+                print( f"DEBUG: _group_and_parse_tokens: MATCH: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
                 res += res_iter
                 i += token_group_size
             else:
