@@ -113,7 +113,8 @@ class QueryParamsParser:
         rng=range( 0, num_tokens ) # DEBUG
         print( f"DEBUG: _group_and_parse_tokens: range {rng}" )
 
-        for i in range( 0, num_tokens ):
+        i = 0
+        while i < num_tokens:
 
             subset = tokens[ i : i + token_group_size ]
 
@@ -123,10 +124,14 @@ class QueryParamsParser:
 
             print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
 
-            if len( res_iter ) == 0:
+            if len( res_iter ) > 0:
+                print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
+                res += res_iter
+                i += token_group_size
+            else:
                 unmatched_tokens.append( tokens[ i ] )
+                i += 1
 
-            res += res_iter
 
         print( f"DEBUG: _group_and_parse_tokens: result: res {len(res)}: {res}, unmatched_tokens {unmatched_tokens}" )
         return [ res, unmatched_tokens ]
