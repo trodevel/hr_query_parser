@@ -43,7 +43,7 @@ def test_kern( name: str, text: str ):
 
     d = p.parse( text )
 
-    print( f'{name}: {d}' )
+    print( f'{name}: \'{text}\' ==> {d}' )
 
 ##########################################################
 
@@ -75,10 +75,9 @@ def test_05():
 
 #    test_kern( "test_05", "node js ontario" )
 #    test_kern( "test_05", "node js ontario office" )
-#    test_kern( "test_05", "node js ontario remote" )
+    test_kern( "test_05", "node js ontario remote" )
 #    test_kern( "test_05", "node js ontario office and remote" )
-#    test_kern( "test_05", "node js ontario hybrid" )
-    test_kern( "test_05", "node js ontario" )
+    test_kern( "test_05", "node js ontario hybrid" )
 
 ##########################################################
 
