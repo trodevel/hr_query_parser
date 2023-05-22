@@ -81,6 +81,13 @@ def test_05():
 
 ##########################################################
 
+def test_06():
+
+    test_kern( "test_06", "node js ontario backend" )
+    test_kern( "test_06", "node js ontario backend developer" )
+    test_kern( "test_06", "node js ontario fullstack" )
+
+##########################################################
 def test():
 
     test_01()
@@ -88,6 +95,7 @@ def test():
     test_03()
     test_04()
     test_05()
+    test_06()
 
 ##########################################################
 
