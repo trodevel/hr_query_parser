@@ -88,6 +88,16 @@ def test_06():
     test_kern( "test_06", "node js ontario fullstack" )
 
 ##########################################################
+
+def test_07():
+
+    test_kern( "test_07", "node js ontario junior" )
+    test_kern( "test_07", "node js ontario middle" )
+    test_kern( "test_07", "node js ontario senior" )
+    test_kern( "test_07", "node js ontario lead" )
+
+##########################################################
+
 def test():
 
     test_01()
@@ -96,6 +106,7 @@ def test():
     test_04()
     test_05()
     test_06()
+    test_07()
 
 ##########################################################
 
