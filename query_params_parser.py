@@ -35,9 +35,9 @@ class QueryParamsParser:
     similarity_pct: int        = None
 
     def __init__( self ):
-        self.locations         = fuzzydict_loader.load_inverse( 'resources/locations.eng.csv', True )
-        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( 'resources/skills.eng.csv', True )
-        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( 'resources/job_formats.eng.csv', True )
+        self.locations         = fuzzydict_loader.load_inverse( 'resources/locations.en.csv', True )
+        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( 'resources/skills.en.csv', True )
+        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( 'resources/job_formats.en.csv', True )
         self.similarity_pct    = 85
 
     def __str__(self):
