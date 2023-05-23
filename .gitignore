@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 resources
+currencies.py
+languages.py
