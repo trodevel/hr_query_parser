@@ -21,7 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from enum import Enum
-from languages import Language
+from externals.languages.languages import Language
 from currencies import Currency
 from typing import Optional
 from generic_str_helpers import optional_to_str
