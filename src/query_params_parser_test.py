@@ -21,6 +21,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import query_params_parser
+from print_helpers.helpers import set_log_level, DEBUG
 
 gl_parser = None
 
@@ -99,6 +100,8 @@ def test_07():
 ##########################################################
 
 def test():
+
+    set_log_level( DEBUG )
 
     test_01()
     test_02()
