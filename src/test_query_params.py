@@ -21,8 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 import query_params
-from languages import Language
-from currencies import Currency
+from externals.languages.languages import Language
+from externals.currencies.currencies import Currency
 from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
 
 ##########################################################

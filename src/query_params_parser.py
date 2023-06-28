@@ -22,6 +22,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from fuzzydict import fuzzydict
 from fuzzydict import fuzzydict_loader
+from print_helpers.helpers import print_fatal, print_error, print_warning, print_info, print_debug
 from query_params import QueryParams
 from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
 
@@ -37,11 +38,11 @@ class QueryParamsParser:
     similarity_pct: int        = None
 
     def __init__( self ):
-        self.locations         = fuzzydict_loader.load_inverse( 'resources/locations.en.csv', True )
-        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( 'resources/skills.en.csv', True )
-        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( 'resources/job_formats.en.csv', True )
-        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( 'resources/specializations.en.csv', True )
-        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( 'resources/qualifications.en.csv', True )
+        self.locations         = fuzzydict_loader.load_inverse( 'assets/locations/locations.en.csv', True )
+        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( 'assets/skills/skills.en.csv', True )
+        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( 'assets/job_formats/job_formats.en.csv', True )
+        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( 'assets/specializations/specializations.en.csv', True )
+        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( 'assets/qualifications/qualifications.en.csv', True )
         self.similarity_pct    = 85
 
     def __str__(self):
@@ -52,13 +53,13 @@ class QueryParamsParser:
         tokens = s.split()
         unmatched_tokens = []
 
-        print( f"DEBUG: parse: skills" )
+        print_debug( f"parse: skills" )
         skills, unmatched_tokens = QueryParamsParser._parse_tokens( tokens, self.skills, self.similarity_pct )
         language_skills: list[LanguageWithLevel] = []
         salary: Optional[Salary]        = None
         experience: Optional[RangeInt]  = None
 
-        print( f"DEBUG: parse: locations" )
+        print_debug( f"parse: locations" )
         locations_list, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.locations, self.similarity_pct )
         location: Optional[int]         = None
 
@@ -67,13 +68,13 @@ class QueryParamsParser:
 
         age: Optional[RangeInt]         = None
         educations: list[HigherEducationLevel]  = []
-        print( f"DEBUG: parse: job_format" )
+        print_debug( f"parse: job_format" )
         job_format, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.job_formats, self.similarity_pct )
 
-        print( f"DEBUG: parse: specialization" )
+        print_debug( f"parse: specialization" )
         specializations, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.specializations, self.similarity_pct )
 
-        print( f"DEBUG: parse: qualifications" )
+        print_debug( f"parse: qualifications" )
         qualifications, unmatched_tokens = QueryParamsParser._parse_tokens( unmatched_tokens, self.qualifications, self.similarity_pct )
 
         res = QueryParams( specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format )
@@ -105,21 +106,21 @@ class QueryParamsParser:
 
     def _group_and_parse_tokens( tokens, d: fuzzydict, similarity_pct: int, token_group_size: int ) -> [ list, list ]:
 
-        print( f"DEBUG: _group_and_parse_tokens: tokens {tokens}, similarity_pct {similarity_pct}, token_group_size {token_group_size}" )
+        print_debug( f"_group_and_parse_tokens: tokens {tokens}, similarity_pct {similarity_pct}, token_group_size {token_group_size}" )
 
         res = []
         unmatched_tokens = []
 
         num_tokens = len( tokens )
 
-        print( f"DEBUG: _group_and_parse_tokens: num_tokens {num_tokens}, token_group_size {token_group_size}" )
+        print_debug( f"_group_and_parse_tokens: num_tokens {num_tokens}, token_group_size {token_group_size}" )
 
         if num_tokens < token_group_size:
-            print( f"DEBUG: _group_and_parse_tokens: num_tokens {num_tokens} < token_group_size {token_group_size}" )
+            print_debug( f"_group_and_parse_tokens: num_tokens {num_tokens} < token_group_size {token_group_size}" )
             return [ res, tokens ]
 
         rng=range( 0, num_tokens ) # DEBUG
-        print( f"DEBUG: _group_and_parse_tokens: range {rng}" )
+        print_debug( f"_group_and_parse_tokens: range {rng}" )
 
         i = 0
         while i < num_tokens:
@@ -130,10 +131,10 @@ class QueryParamsParser:
 
             res_iter = d.find_all( t, similarity_pct )
 
-            print( f"DEBUG: _group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
+            print_debug( f"_group_and_parse_tokens: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
 
             if len( res_iter ) > 0:
-                print( f"DEBUG: _group_and_parse_tokens: MATCH: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
+                print_debug( f"_group_and_parse_tokens: MATCH: i {i}, t '{t}', res_iter {len(res_iter)}: {res_iter}" )
                 res += res_iter
                 i += token_group_size
             else:
@@ -141,7 +142,7 @@ class QueryParamsParser:
                 i += 1
 
 
-        print( f"DEBUG: _group_and_parse_tokens: result: res {len(res)}: {res}, unmatched_tokens {unmatched_tokens}" )
+        print_debug( f"_group_and_parse_tokens: result: res {len(res)}: {res}, unmatched_tokens {unmatched_tokens}" )
         return [ res, unmatched_tokens ]
 
     def _parse_token( token: str, d: fuzzydict, similarity_pct: int  ) -> list:
