@@ -32,7 +32,7 @@ def get_parser():
     global gl_parser
 
     if not gl_parser:
-        gl_parser = QueryParamsParser( '../assets' )
+        gl_parser = QueryParamsParser( 'assets' )
 
     return gl_parser
 
