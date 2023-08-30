@@ -21,8 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from typing import Optional
-from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
-from generic_str_helpers import list_to_str_w_size, optional_to_str_w_brackets
+from hr_query_parser.common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
+from hr_query_parser.generic_str_helpers import list_to_str_w_size, optional_to_str_w_brackets
 
 ##########################################################
 
