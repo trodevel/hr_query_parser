@@ -38,11 +38,11 @@ class QueryParamsParser:
     similarity_pct: int        = None
 
     def __init__( self, path_to_assets: str ):
-        self.locations         = fuzzydict_loader.load_inverse( f"{path_to_assets}/locations/locations.en.csv", True )
-        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/skills/skills.en.csv", True )
-        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/job_formats/job_formats.en.csv", True )
-        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/specializations/specializations.en.csv", True )
-        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/qualifications/qualifications.en.csv", True )
+        self.locations         = fuzzydict_loader.load_inverse( f"{path_to_assets}/locations/resources/locations.en.csv", True )
+        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/skills/resources/skills.en.csv", True )
+        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/job_formats/resources/job_formats.en.csv", True )
+        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/specializations/resources/specializations.en.csv", True )
+        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/qualifications/resources/qualifications.en.csv", True )
         self.similarity_pct    = 85
 
     def __str__(self):
