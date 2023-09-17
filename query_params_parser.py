@@ -24,7 +24,8 @@ from fuzzydict import fuzzydict
 from fuzzydict import fuzzydict_loader
 from print_helpers.helpers import print_fatal, print_error, print_warning, print_info, print_debug
 from hr_query_parser.query_params import QueryParams
-from hr_query_parser.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
+from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat
+from hr_query_parser.common_types import Salary, RangeInt
 
 ##########################################################
 
