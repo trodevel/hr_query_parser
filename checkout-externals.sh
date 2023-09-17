@@ -29,3 +29,5 @@ checkout git@github.com:trodevel/hr_skills            assets/skills           1.
 checkout git@github.com:trodevel/hr_specializations   assets/specializations  2.0.0
 checkout git@github.com:trodevel/hr_job_formats       assets/job_formats      1.0.0
 checkout git@github.com:trodevel/hr_qualifications    assets/qualifications   1.0.0
+
+checkout git@github.com:trodevel/hr_common_types           ""        maint_adjusted_for_bot
