@@ -21,8 +21,8 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from enum import Enum
-from languages.languages import Language
-from currencies.currencies import Currency
+from languages.python.languages import Language
+from currencies.python.currencies import Currency
 from typing import Optional
 from hr_query_parser.generic_str_helpers import optional_to_str
 
