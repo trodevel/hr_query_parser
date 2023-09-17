@@ -21,9 +21,10 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from hr_query_parser.query_params import QueryParams
-from languages.languages import Language
-from currencies.currencies import Currency
-from hr_query_parser.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
+from languages.python.languages import Language
+from currencies.python.currencies import Currency
+from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat
+from hr_query_parser.common_types import Salary, RangeInt
 
 ##########################################################
 
