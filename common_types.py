@@ -28,44 +28,6 @@ from hr_query_parser.generic_str_helpers import optional_to_str
 
 ##########################################################
 
-class JobFormat(int, Enum):
-    UNDEF = 0
-    OFFICE_ONLY = 1
-    OFFICE_AND_REMOTE = 2
-    REMOTE_ONLY = 3
-
-class Qualification(int, Enum):
-    undef = 0
-    intern = 1
-    junior = 2
-    middle = 3
-    senior = 4
-    lead = 5
-
-class HigherEducationLevel(int, Enum):
-    UNDEF = 0
-    BACHELOR = 1
-    MASTER = 2
-    PHD = 3
-
-class LanguageLevel(int, Enum):
-    undef = 0
-    beginner = 1
-    intermediate = 2
-    advanced = 3
-    native = 4
-
-class LanguageWithLevel:
-    language: Language        = None
-    level: LanguageLevel      = None
-
-    def __init__( self, language, level ):
-        self.language          = language
-        self.level             = level
-
-    def __str__(self):
-        return str( self.language ) + ";" + str( self.level )
-
 class RangeInt:
     value_from: Optional[int]     = None
     value_to:   Optional[int]     = None
