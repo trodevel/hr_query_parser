@@ -23,7 +23,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from hr_query_parser.query_params import QueryParams
 from languages.python.languages import Language
 from currencies.python.currencies import Currency
-from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat
+from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, OfficePresenceType
 from hr_query_parser.common_types import Salary, RangeInt
 
 ##########################################################
@@ -37,7 +37,7 @@ def test_01():
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.BACHELOR ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_01: {d}' )
 
@@ -68,7 +68,7 @@ def test_03():
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.MASTER ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_03: {d}' )
 
@@ -86,7 +86,7 @@ def test_04():
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.MASTER ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_04: {d}' )
 
