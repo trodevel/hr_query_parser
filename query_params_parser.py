@@ -23,8 +23,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 from fuzzydict import fuzzydict
 from fuzzydict import fuzzydict_loader
 from print_helpers.helpers import print_fatal, print_error, print_warning, print_info, print_debug
-from query_params import QueryParams
-from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
+from hr_query_parser.query_params import QueryParams
+from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, OfficePresenceType
+from hr_query_parser.common_types import Salary, RangeInt
 
 ##########################################################
 
@@ -38,11 +39,11 @@ class QueryParamsParser:
     similarity_pct: int        = None
 
     def __init__( self, path_to_assets: str ):
-        self.locations         = fuzzydict_loader.load_inverse( f"{path_to_assets}/locations/locations.en.csv", True )
-        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/skills/skills.en.csv", True )
-        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/job_formats/job_formats.en.csv", True )
-        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/specializations/specializations.en.csv", True )
-        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/qualifications/qualifications.en.csv", True )
+        self.locations         = fuzzydict_loader.load_inverse( f"{path_to_assets}/locations/resources/locations.en.csv", True )
+        self.skills            = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/skills/resources/skills.en.csv", True )
+        self.job_formats       = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/job_formats/resources/job_formats.en.csv", True )
+        self.specializations   = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/specializations/resources/specializations.en.csv", True )
+        self.qualifications    = fuzzydict_loader.load_inverse_w_synonyms( f"{path_to_assets}/qualifications/resources/qualifications.en.csv", True )
         self.similarity_pct    = 85
 
     def __str__(self):

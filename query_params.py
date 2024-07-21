@@ -21,8 +21,9 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 '''
 
 from typing import Optional
-from common_types import HigherEducationLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
-from generic_str_helpers import list_to_str_w_size, optional_to_str_w_brackets
+from hr_common_types.common_types import HigherEducationLevel, LanguageWithLevel, OfficePresenceType
+from hr_query_parser.common_types import Salary, RangeInt
+from hr_query_parser.generic_str_helpers import list_to_str_w_size, optional_to_str_w_brackets
 
 ##########################################################
 
@@ -37,7 +38,7 @@ class QueryParams:
     location: Optional[int]         = None
     age: Optional[RangeInt]         = None
     educations: list[HigherEducationLevel]  = []
-    job_format: Optional[JobFormat] = None
+    job_format: Optional[OfficePresenceType] = None
 
     def __init__( self, specializations, qualifications, skills, language_skills, salary, experience, location, age, educations, job_format ):
         self.specializations   = specializations

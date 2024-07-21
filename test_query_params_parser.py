@@ -20,7 +20,7 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
 
-import query_params_parser
+from hr_query_parser.query_params_parser import QueryParamsParser
 from print_helpers.helpers import set_log_level, DEBUG
 
 gl_parser = None
@@ -32,7 +32,7 @@ def get_parser():
     global gl_parser
 
     if not gl_parser:
-        gl_parser = query_params_parser.QueryParamsParser( '../assets' )
+        gl_parser = QueryParamsParser( 'assets' )
 
     return gl_parser
 

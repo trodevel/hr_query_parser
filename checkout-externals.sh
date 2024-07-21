@@ -1,9 +1,33 @@
 #!/bin/bash
 
-svn export https://github.com/trodevel/languages/tags/1.0.0/python externals/languages
-svn export https://github.com/trodevel/currencies/tags/1.0.0/python externals/currencies
-svn export https://github.com/trodevel/hr_locations/tags/1.0.0/resources assets/locations
-svn export https://github.com/trodevel/hr_skills/tags/1.0.0/resources assets/skills
-svn export https://github.com/trodevel/hr_specializations/tags/2.0.0/resources assets/specializations
-svn export https://github.com/trodevel/hr_job_formats/tags/1.0.0/resources assets/job_formats
-svn export https://github.com/trodevel/hr_qualifications/tags/1.0.0/resources assets/qualifications
+checkout()
+{
+    local repo=$1
+    local dir=$2
+    local branch=$3
+
+    [[ -z $dir ]] && dir=$( echo "$repo" | sed "s~.*/\([a-zA-Z0-9_\-]*\)~externals/\1~") #"
+
+    if [[ ! -d $dir ]]
+    then
+        git clone $repo $dir
+        if [[ -n $branch ]]
+        then
+            cd $dir; git checkout $branch; cd - >/dev/null;
+        fi
+    else
+        echo "$dir"
+        cd $dir; git pull; cd - >/dev/null;
+    fi
+}
+
+checkout git@github.com:trodevel/languages                 ""        1.0.0
+checkout git@github.com:trodevel/currencies                ""        1.0.0
+
+checkout git@github.com:trodevel/hr_locations         assets/locations        1.0.0
+checkout git@github.com:trodevel/hr_skills            assets/skills           1.0.0
+checkout git@github.com:trodevel/hr_specializations   assets/specializations  2.0.0
+checkout git@github.com:trodevel/hr_job_formats       assets/job_formats      1.0.0
+checkout git@github.com:trodevel/hr_qualifications    assets/qualifications   1.0.0
+
+checkout git@github.com:trodevel/hr_common_types           ""        maint_adjusted_for_bot

@@ -20,23 +20,24 @@ along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 '''
 
-import query_params
-from externals.languages.languages import Language
-from externals.currencies.currencies import Currency
-from common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, JobFormat, Salary, RangeInt
+from hr_query_parser.query_params import QueryParams
+from languages.python.languages import Language
+from currencies.python.currencies import Currency
+from hr_common_types.common_types import HigherEducationLevel, LanguageLevel, LanguageWithLevel, OfficePresenceType
+from hr_query_parser.common_types import Salary, RangeInt
 
 ##########################################################
 
 def test_01():
 
-    d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
+    d = QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
         [ LanguageWithLevel( Language.en, LanguageLevel.advanced ) ],
         Salary( RangeInt( 0, 200000 ), Currency.EUR ),
         RangeInt( 0, 2 ),
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.BACHELOR ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_01: {d}' )
 
@@ -44,7 +45,7 @@ def test_01():
 
 def test_02():
 
-    d = query_params.QueryParams( [ ], [ ], [ ], \
+    d = QueryParams( [ ], [ ], [ ], \
         [ ],
         None,
         None,
@@ -59,7 +60,7 @@ def test_02():
 
 def test_03():
 
-    d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
+    d = QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
         [ LanguageWithLevel( Language.en, LanguageLevel.advanced ), \
              LanguageWithLevel( Language.de, LanguageLevel.beginner ) ],
         Salary( RangeInt( 0, 85000 ), Currency.EUR ),
@@ -67,7 +68,7 @@ def test_03():
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.MASTER ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_03: {d}' )
 
@@ -75,7 +76,7 @@ def test_03():
 
 def test_04():
 
-    d = query_params.QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
+    d = QueryParams( [ 111, 222 ], [ 777, 888 ], [ 999 ], \
         [ LanguageWithLevel( Language.en, LanguageLevel.beginner ), \
         LanguageWithLevel( Language.en, LanguageLevel.intermediate ), \
         LanguageWithLevel( Language.en, LanguageLevel.advanced ), \
@@ -85,7 +86,7 @@ def test_04():
         555,
         RangeInt( 20, 50 ),
         [ HigherEducationLevel.MASTER ],
-        JobFormat.OFFICE_AND_REMOTE )
+        OfficePresenceType.OFFICE_AND_REMOTE )
 
     print( f'test_04: {d}' )
 
